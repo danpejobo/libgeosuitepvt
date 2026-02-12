@@ -3,7 +3,7 @@ requires = ["setuptools>=68.0.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "geosuitepvt-parser"
+name = "geosuitepvt"
 version = "0.1.0"
 description = "Standalone parser for GeoSuite PVT files."
 readme = "README.md"
