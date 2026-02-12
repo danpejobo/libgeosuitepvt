@@ -5,8 +5,6 @@ from pathlib import Path
 from typing import Any, Optional
 import math
 
-import libgeosuitepvt
-
 from .models import ParsedPiezometer, PiezometerMetadata, PiezometerReading
 
 
@@ -16,17 +14,7 @@ class PVTParser:
     _HEADER_PREFIX = "date"
 
     def parse(self, file_path: str) -> list[ParsedPiezometer]:
-        parsed = None
-        try:
-            parsed = libgeosuitepvt.parse(file_path)
-        except Exception as exc:
-            raise RuntimeError(f"Failed to parse PVT file '{file_path}': {exc}") from exc
-
-        if parsed:
-            normalized = self._normalize_lib_output(parsed, file_path)
-            if normalized:
-                return normalized
-
+        # Kaller tekst-parseren direkte for å unngå avhengighet til libgeosuitepvt
         return [self._parse_text_file(file_path)]
 
     def _normalize_lib_output(
