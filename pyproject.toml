@@ -2,12 +2,16 @@
 name = "libgeosuitepvt"
 version = "0.1.0"
 description = "Standalone parser for GeoSuite PVT files."
-authors = [{name = "DPE", email = ""}]
+authors = [{name = "DPE"}]
 readme = "README.md"
-license = {text = "GPL3"}
+license = "GPL-3.0-only"
 requires-python = ">=3.10"
 dependencies = []
 
 [build-system]
-requires = ["poetry-core"]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+# Denne linjen sikrer at 'import libgeosuitepvt' finner mappen
+packages = [{include = "libgeosuitepvt"}]
